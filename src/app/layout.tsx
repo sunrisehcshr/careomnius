@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Preloader from "@/components/ui/preloader";
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import ScrollToTop from "@/components/sections/scrollToTop";
@@ -15,9 +14,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="loading" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <BootstrapForBrowser />
-        <Preloader />
         <Header />
         {children}
         <Footer />
