@@ -2585,7 +2585,6 @@ ul.extra-skills li i {
 
 body.loading {
     overflow: hidden !important;
-    height: 100% !important;
 }
 
 .preloader {

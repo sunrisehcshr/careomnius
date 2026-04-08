@@ -49,7 +49,7 @@ const Preloader = () => {
             
             if (isMounted) {
                 document.body.classList.remove('loading');
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = ''; // Let css handle the overflow if needed
             }
         };
 
