@@ -8,8 +8,10 @@ const Preloader = () => {
     const textControls = useAnimation();
 
     useEffect(() => {
+        let isMounted = true;
         const animateSequence = async () => {
             // Text fade and move up
+            if (!isMounted) return;
             await textControls.start({
                 y: -100,
                 opacity: 0,
@@ -17,32 +19,45 @@ const Preloader = () => {
             });
 
             // Curve animation
+            if (!isMounted) return;
             await pathControls.start({
                 d: "M0 502S175 272 500 272s500 230 500 230V0H0Z",
                 transition: { duration: 0.5, ease: "easeIn" },
             });
 
             // Flat animation
+            if (!isMounted) return;
             await pathControls.start({
                 d: "M0 2S175 1 500 1s500 1 500 1V0H0Z",
                 transition: { duration: 0.5, ease: "easeOut" },
             });
 
             // Slide the preloader out of view
+            if (!isMounted) return;
             await preloaderControls.start({
                 y: -1500,
                 transition: { duration: 0.8, ease: "easeInOut" },
             });
 
             // Hide the preloader
+            if (!isMounted) return;
             await preloaderControls.start({
                 zIndex: -1,
                 display: "none",
                 transition: { duration: 0 },
             });
+            
+            if (isMounted) {
+                document.body.classList.remove('loading');
+                document.body.style.overflow = 'auto';
+            }
         };
 
         animateSequence();
+        
+        return () => {
+            isMounted = false;
+        };
     }, [pathControls, preloaderControls, textControls]);
 
     return (
