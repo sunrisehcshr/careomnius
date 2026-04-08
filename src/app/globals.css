@@ -9,7 +9,3 @@
 @import '../assets/css/spacing.css';
 @import '../assets/css/style.css';
 @import '../assets/css/responsive.css';
-
-body {
-    overflow-x: hidden;
-}
