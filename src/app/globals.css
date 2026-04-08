@@ -6,6 +6,6 @@
 /* bootstrap */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 /* css */
-@import '../assets/css/spacing';
-@import '../assets/css/style';
+@import '../assets/css/spacing.css';
+@import '../assets/css/style.css';
 @import '../assets/css/responsive.css';
